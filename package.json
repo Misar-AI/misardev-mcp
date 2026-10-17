@@ -1,0 +1,93 @@
+{
+  "name": "@misardev/mcp",
+  "version": "3.0.0",
+  "mcpName": "io.github.Misar-AI/misardev-mcp",
+  "description": "MisarDev MCP server — create, build, deploy and roll back projects, manage custom domains, search your code and the web, and track plan usage from Claude, Cursor, VS Code, Windsurf and any MCP client.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./http": {
+      "types": "./dist/http.d.ts",
+      "import": "./dist/http.js"
+    },
+    "./registry": {
+      "types": "./dist/registry.d.ts",
+      "import": "./dist/registry.js"
+    }
+  },
+  "bin": {
+    "misardev-mcp": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "smithery.yaml",
+    "server.json",
+    "README.md",
+    "INSTALL.md",
+    "skills",
+    "agents",
+    "connectors",
+    "customgpt",
+    "web-skills"
+  ],
+  "scripts": {
+    "build": "tsc && chmod +x dist/index.js",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "pnpm build"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "developer-tools",
+    "deployment",
+    "hosting",
+    "app-builder",
+    "ai-coding",
+    "code-search",
+    "rag",
+    "web-search",
+    "custom-domains",
+    "checkpoints",
+    "claude",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "vscode",
+    "ai-agent",
+    "misardev"
+  ],
+  "homepage": "https://misar.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Misar-AI/misardev-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Misar-AI/misardev-mcp/issues"
+  },
+  "author": "Misar.AI <support@misar.io>",
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.10.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

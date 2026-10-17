@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "misardev": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@misardev/mcp@latest"
+      ],
+      "env": {
+        "MISARDEV_API_KEY": "mdk_YOUR_KEY_HERE"
+      }
+    }
+  }
+}

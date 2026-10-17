@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "misardev": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@misardev/mcp@latest"
+      ],
+      "env": {
+        "MISARDEV_API_KEY": "mdk_YOUR_KEY_HERE"
+      }
+    },
+    "misardev-remote": {
+      "url": "https://api.misar.io/dev/mcp",
+      "headers": {
+        "Authorization": "Bearer mdk_YOUR_KEY_HERE"
+      }
+    }
+  }
+}

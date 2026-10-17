@@ -1,0 +1,11 @@
+{
+  "note": "Claude.ai → Settings → Connectors → Add custom connector",
+  "name": "MisarDev",
+  "remote_mcp_url": "https://api.misar.io/dev/mcp",
+  "authentication": {
+    "type": "bearer",
+    "header": "Authorization",
+    "value": "Bearer mdk_YOUR_KEY_HERE",
+    "obtain_at": "https://misar.dev/settings/api-keys"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "misardev",
+  "version": "3.0.0",
+  "description": "Create, build and deploy projects, roll back with checkpoints, connect custom domains, and search your code and the web — from any AI assistant.",
+  "author": {
+    "name": "Misar.AI",
+    "email": "support@misar.io",
+    "url": "https://misar.io"
+  },
+  "homepage": "https://misar.dev",
+  "repository": "https://github.com/Misar-AI/misardev-mcp",
+  "license": "MIT",
+  "keywords": [
+    "developer-tools",
+    "deployment",
+    "hosting",
+    "code-search",
+    "automation"
+  ],
+  "mcpServers": {
+    "misardev": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@misardev/mcp@latest"
+      ],
+      "env": {
+        "MISARDEV_API_KEY": "${MISARDEV_API_KEY}"
+      }
+    }
+  }
+}

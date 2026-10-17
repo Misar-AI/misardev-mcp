@@ -1,0 +1,22 @@
+{
+  "name": "misar",
+  "owner": {
+    "name": "Misar.AI",
+    "email": "support@misar.io",
+    "url": "https://misar.io"
+  },
+  "metadata": {
+    "description": "Official Misar.AI plugins — email, publishing, and growth tooling for AI agents.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "misardev",
+      "source": "https://github.com/Misar-AI/misardev-mcp",
+      "description": "Create, build and deploy projects, roll back with checkpoints, connect custom domains, and search your code and the web — from any AI assistant.",
+      "version": "3.0.0",
+      "category": "developer-tools",
+      "strict": false
+    }
+  ]
+}

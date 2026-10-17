@@ -1,0 +1,53 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.Misar-AI/misardev-mcp",
+  "title": "MisarDev MCP Server",
+  "description": "Create, build and deploy projects, roll back with checkpoints, connect custom domains, and search…",
+  "version": "3.0.0",
+  "repository": {
+    "url": "https://github.com/Misar-AI/misardev-mcp",
+    "source": "github"
+  },
+  "websiteUrl": "https://misar.dev",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@misardev/mcp",
+      "version": "3.0.0",
+      "runtimeHint": "npx",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "MISARDEV_API_KEY",
+          "description": "Your MisarDev API key (mdk_…). Create one at https://misar.dev/settings/api-keys.",
+          "isRequired": false,
+          "format": "string",
+          "isSecret": true
+        },
+        {
+          "name": "MISARDEV_BASE_URL",
+          "description": "Override the API base URL. Only needed for self-hosted instances.",
+          "isRequired": false,
+          "format": "string",
+          "isSecret": false
+        }
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.misar.io/dev/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "MisarDev API key. Format: Bearer mdk_… — create one at https://misar.dev/settings/api-keys",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}

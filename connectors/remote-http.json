@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "misardev": {
+      "type": "streamable-http",
+      "url": "https://api.misar.io/dev/mcp",
+      "headers": {
+        "Authorization": "Bearer mdk_YOUR_KEY_HERE"
+      }
+    }
+  }
+}

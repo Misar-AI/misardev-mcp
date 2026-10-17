@@ -1,0 +1,7 @@
+# MisarDev MCP server for Codex.
+# Append to ~/.codex/config.toml
+
+[mcp_servers.misardev]
+command = "npx"
+args = ["-y", "@misardev/mcp@latest"]
+env = { MISARDEV_API_KEY = "mdk_YOUR_KEY_HERE" }

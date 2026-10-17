@@ -1,0 +1,7 @@
+{
+  "qualifiedName": "misar/misardev-mcp",
+  "install": "npx -y @smithery/cli install misar/misardev-mcp --client claude",
+  "config": {
+    "apiKey": "mdk_YOUR_KEY_HERE"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "misardev-key",
+      "description": "MisarDev API key (mdk_…) — create one at https://misar.dev/settings/api-keys",
+      "password": true
+    }
+  ],
+  "servers": {
+    "misardev": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@misardev/mcp@latest"
+      ],
+      "env": {
+        "MISARDEV_API_KEY": "${input:misardev-key}"
+      }
+    }
+  }
+}

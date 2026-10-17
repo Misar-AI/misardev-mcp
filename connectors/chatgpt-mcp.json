@@ -1,0 +1,10 @@
+{
+  "note": "ChatGPT → Settings → Connected apps → Add connector (Streamable HTTP)",
+  "name": "MisarDev",
+  "server_url": "https://api.misar.io/dev/mcp",
+  "authentication": {
+    "type": "bearer",
+    "value": "mdk_YOUR_KEY_HERE",
+    "obtain_at": "https://misar.dev/settings/api-keys"
+  }
+}

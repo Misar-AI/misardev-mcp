@@ -1,0 +1,325 @@
+{
+  "serverInfo": {
+    "name": "MisarDev",
+    "version": "3.0.0",
+    "logoUrl": "https://misar.dev/logo-light.png"
+  },
+  "websiteUrl": "https://misar.dev",
+  "documentationUrl": "https://docs.misar.io/dev/mcp",
+  "authentication": {
+    "required": true,
+    "schemes": [
+      "bearer"
+    ],
+    "tokenUrl": "https://misar.dev/settings/api-keys"
+  },
+  "capabilities": {
+    "tools": true,
+    "prompts": true,
+    "resources": true
+  },
+  "tools": [
+    {
+      "name": "list_projects",
+      "description": "List the projects you own or can access, newest first, with cursor pagination. view=active (default) hides archived and trashed projects; pass view=archived or view=trash to see those."
+    },
+    {
+      "name": "get_project",
+      "description": "Get one project by ID — name, description, settings, visibility, version and deployment fields. Read this before update_project so you change the current version, not a stale copy."
+    },
+    {
+      "name": "create_project",
+      "description": "Create a new, empty project (optionally seeded with a file map). Counts against the plan's project quota. To start from a starter instead, use use_template."
+    },
+    {
+      "name": "update_project",
+      "description": "Update a project's name, description, files, settings or visibility. Files passed here REPLACE the matching paths. Pass the `version` you read with get_project to avoid overwriting someone else's newer edit (the API answers 409 on a conflict)."
+    },
+    {
+      "name": "delete_project",
+      "description": "Move a project to the trash. It disappears from every list and route immediately; restore_project brings it back during the retention window. Confirm with the user first — anything published from it stops being editable."
+    },
+    {
+      "name": "restore_project",
+      "description": "Restore a project from the trash. A project that was archived before it was trashed returns to the archive, not to the active list."
+    },
+    {
+      "name": "archive_project",
+      "description": "Archive (archived=true) or un-archive (archived=false) a project. Archiving hides it from the active list without deleting anything; it is fully reversible."
+    },
+    {
+      "name": "duplicate_project",
+      "description": "Copy a project (files and settings) into a new project you own, named after the original. Counts against the plan's project quota. Any member with read access may duplicate."
+    },
+    {
+      "name": "get_project_files",
+      "description": "Get a project's file tree with file contents. Use this to read code before answering questions about it or proposing an update_project change."
+    },
+    {
+      "name": "write_project_files",
+      "description": "Create, update or delete files in a project (1–100 per call, each up to 1 MB; paths are relative, no `..`). Other files are left as they are. Overwrites and deletes are applied to the working files immediately — confirm with the user, and use list_checkpoints/restore_checkpoint to undo. Pass `version` (from get_project) to refuse the write if anything changed since you read it. The published site does not change until you deploy again."
+    },
+    {
+      "name": "import_artifact",
+      "description": "Import a published Misar artifact page into a project as imported/ARTIFACT_ID.html. The url must be exactly https://misar.ai/code/artifact/ARTIFACT_ID; anything else is refused before any fetch."
+    },
+    {
+      "name": "get_project_knowledge",
+      "description": "Read a project's knowledge — the standing notes (product context, conventions, constraints) the AI builder reads on every change."
+    },
+    {
+      "name": "update_project_knowledge",
+      "description": "Replace a project's knowledge (up to 20,000 characters) — the standing notes the AI builder reads on every change. This replaces the whole text, so read it with get_project_knowledge first and send the edited version."
+    },
+    {
+      "name": "get_project_backend",
+      "description": "Show a full-stack project's database backend: whether one is provisioned, its schema name, table count and connection state."
+    },
+    {
+      "name": "provision_project_backend",
+      "description": "Provision the database backend for a full-stack project: its own isolated schema, protected by row-level security. Safe to repeat — an already-provisioned project reports its existing backend."
+    },
+    {
+      "name": "list_templates",
+      "description": "List the starter templates a new project can begin from, with their IDs, names and categories. Pick one here before calling use_template."
+    },
+    {
+      "name": "get_template",
+      "description": "Get one template by ID — its description, stack and the files it would create."
+    },
+    {
+      "name": "use_template",
+      "description": "Create a new project from a template. Returns the new project; counts against the plan's project quota."
+    },
+    {
+      "name": "deploy_project",
+      "description": "Publish a project to the public internet on the MisarDev runtime (optionally at a chosen subdomain). The site becomes reachable by anyone. Confirm with the user before calling, check the address first with check_subdomain, and follow with get_deployment_status. Counts against the plan's deploy quota."
+    },
+    {
+      "name": "get_deployment_status",
+      "description": "Get a project's current deployment: whether it is live, its URL, subdomain and custom-domain state. Call after deploy_project to confirm the site is actually up before telling anyone it is."
+    },
+    {
+      "name": "unpublish_project",
+      "description": "Take a published site offline. Its public URL stops serving immediately. This is not a rollback — to go back to an earlier version, restore_checkpoint and deploy again. Confirm with the user first."
+    },
+    {
+      "name": "check_subdomain",
+      "description": "Check whether a subdomain label is free for this project and, if not, get suggestions. The project's own current subdomain reads as available."
+    },
+    {
+      "name": "update_project_subdomain",
+      "description": "Move a project to a new <subdomain>.misar.app address (check it first with check_subdomain). If the app is published, the live site moves immediately and the OLD address stops working — get the user's explicit approval. If it is not published yet, this just reserves the name for the next deploy."
+    },
+    {
+      "name": "list_builds",
+      "description": "List your recent AI builds across all projects, newest first, with status, model and the project each belongs to."
+    },
+    {
+      "name": "get_build_status",
+      "description": "Get whether a project currently has a build running and its latest build state. Poll this rather than assuming a build finished."
+    },
+    {
+      "name": "cancel_build",
+      "description": "Cancel the build currently running on a project. Work the build had not yet saved is discarded."
+    },
+    {
+      "name": "list_checkpoints",
+      "description": "List a project's saved checkpoints (up to 100, newest first) with label, changed paths and timestamp. Checkpoints are the project's version history — use one to undo a bad change."
+    },
+    {
+      "name": "restore_checkpoint",
+      "description": "Restore a project's files to a checkpoint. The current state is snapshotted first, so the restore itself can be undone — but it does overwrite the working files, so confirm with the user. A published site does not change until you deploy again."
+    },
+    {
+      "name": "rename_checkpoint",
+      "description": "Give a checkpoint a human-readable label (1–80 characters) so it is easy to find later."
+    },
+    {
+      "name": "delete_checkpoint",
+      "description": "Delete one checkpoint from a project's version history. It can no longer be restored afterwards, and the last remaining checkpoint cannot be deleted. Confirm with the user first."
+    },
+    {
+      "name": "get_custom_domain",
+      "description": "Get a project's custom domain, its status, the DNS record the user must set, and whether DNS already resolves to the platform (TLS is issued automatically once it does)."
+    },
+    {
+      "name": "set_custom_domain",
+      "description": "Attach a domain the user owns to a published project and provision routing/TLS. Paid plans only (the API answers with an upgrade offer otherwise). Returns the DNS record to set — the domain only serves once that record is live."
+    },
+    {
+      "name": "remove_custom_domain",
+      "description": "Detach a project's custom domain and remove its route. The domain stops serving the app immediately; the default subdomain keeps working. Confirm with the user first."
+    },
+    {
+      "name": "lookup_domain",
+      "description": "Look up a domain's public registration data (RDAP): whether it is registered, its registrar and key dates. Useful before suggesting a custom domain."
+    },
+    {
+      "name": "search_workspace",
+      "description": "Search across your projects and the public catalogue (templates, skills, the published gallery) by name and description. Does NOT search inside project files — use search_project_code for that. A source that could not be reached is reported as unavailable, never as zero results."
+    },
+    {
+      "name": "web_search",
+      "description": "Answer a question from the live web with citations (MisarDev's grounded search). Returns the answer, url_citation annotations and the ranked sources. Spends model credits; quote only what the sources support."
+    },
+    {
+      "name": "create_chat_completion",
+      "description": "Run a one-shot, non-streaming chat completion on MisarDev's OpenAI-compatible model API. model='misar-online' grounds the answer in the web with citations; omit model for the default coding model. Spends model credits."
+    },
+    {
+      "name": "index_project_code",
+      "description": "Index a project's files for semantic code search (RAG). Pass the files to index as a path → content map; re-indexing a path replaces it. Metered — a paid-plan feature."
+    },
+    {
+      "name": "search_project_code",
+      "description": "Semantic search inside an indexed project's code. Answer only from the snippets it returns and cite their file paths; if get_code_index_stats shows nothing indexed, index first."
+    },
+    {
+      "name": "get_code_index_stats",
+      "description": "Get embedding statistics for a project — how many files and chunks are indexed and when."
+    },
+    {
+      "name": "clear_code_index",
+      "description": "Delete every embedding for a project. Code search returns nothing until the project is indexed again. Project files are not touched."
+    },
+    {
+      "name": "upgrade",
+      "description": "Show the current MisarDev plan, how much of each quota (builds, edits, projects) is left this period, and the link to compare plans and upgrade. Call it any time — not only after hitting a limit. Reads only: it never changes the plan or takes payment. On a local install, open=true also opens the pricing page in the user's browser."
+    },
+    {
+      "name": "get_usage",
+      "description": "Get detailed usage for the account. format=quick returns a lightweight summary, format=dashboard the full dashboard data; analytics=true adds a per-day breakdown over `days` (default 30). For plan limits at a glance, use upgrade."
+    },
+    {
+      "name": "get_subscription",
+      "description": "Get the account's subscription: plan, status, current period end and whether it cancels at period end."
+    },
+    {
+      "name": "list_plans",
+      "description": "List MisarDev's plans with prices, limits and features — what each upgrade would unlock."
+    },
+    {
+      "name": "list_notifications",
+      "description": "List your notifications (build finished, deploy failed, invitations…), newest first, with the unread count. Pass `before` (an ISO timestamp from the last row) to page back; unread_only=true returns just the count."
+    },
+    {
+      "name": "mark_notifications_read",
+      "description": "Mark every notification as read, clearing the unread badge. Nothing is deleted."
+    },
+    {
+      "name": "list_api_keys",
+      "description": "List your API keys — name, prefix, created/expiry dates and IP allowlist. Never returns the secret."
+    },
+    {
+      "name": "create_api_key",
+      "description": "Create a new API key. The raw key is returned ONCE — hand it to the user and never repeat or store it. Every MisarDev key has full API access; keys expire (default 90 days, max 365)."
+    },
+    {
+      "name": "revoke_api_key",
+      "description": "Revoke an API key by ID. It is deleted permanently and anything still using it fails immediately. Confirm with the user first, and never revoke the key this session is using without saying so."
+    },
+    {
+      "name": "mark_notification_read",
+      "description": "Mark one notification as read (use mark_notifications_read for all of them)."
+    },
+    {
+      "name": "list_audit_log",
+      "description": "List your own audit trail — API-key, deployment and billing events where you were the actor, newest first. Needs a plan that includes audit logs; otherwise it returns an upgrade message."
+    },
+    {
+      "name": "list_connectors",
+      "description": "List the connectors available on MisarDev and whether each is enabled for you, with its category, status and dashboard path."
+    },
+    {
+      "name": "toggle_connector",
+      "description": "Enable or disable a connector by slug (from list_connectors). Reversible."
+    }
+  ],
+  "prompts": [
+    {
+      "name": "ship_a_project",
+      "description": "Take a project from a template to a live, verified deployment.",
+      "arguments": [
+        {
+          "name": "name",
+          "description": "Project name",
+          "required": true
+        },
+        {
+          "name": "template",
+          "description": "Template to start from",
+          "required": false
+        },
+        {
+          "name": "subdomain",
+          "description": "Preferred subdomain",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "undo_a_bad_change",
+      "description": "Roll a project back to an earlier checkpoint and, if it was live, redeploy.",
+      "arguments": [
+        {
+          "name": "project",
+          "description": "Project ID or name",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "deployment_health",
+      "description": "Review recent builds and deployments and say what needs attention.",
+      "arguments": [
+        {
+          "name": "project",
+          "description": "Project ID or name",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "search_the_codebase",
+      "description": "Answer a question about a project from its indexed code.",
+      "arguments": [
+        {
+          "name": "question",
+          "description": "What you want to know",
+          "required": true
+        },
+        {
+          "name": "project",
+          "description": "Project ID or name",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "usage_and_keys_audit",
+      "description": "Review plan usage and API keys for anything unexpected.",
+      "arguments": []
+    }
+  ],
+  "resources": [
+    {
+      "uri": "misardev://projects",
+      "name": "Projects",
+      "description": "Your active projects, newest first — the IDs every other tool takes.",
+      "mimeType": "application/json"
+    },
+    {
+      "uri": "misardev://templates",
+      "name": "Templates",
+      "description": "Available starter templates, so a new project begins from a real one.",
+      "mimeType": "application/json"
+    },
+    {
+      "uri": "misardev://plan",
+      "name": "Plan and quota",
+      "description": "Current plan and remaining builds, edits and projects this period — the baseline for any quota question.",
+      "mimeType": "application/json"
+    }
+  ]
+}
