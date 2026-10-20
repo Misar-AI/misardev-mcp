@@ -1,6 +1,6 @@
 {
   "name": "@misardev/mcp",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "mcpName": "io.github.Misar-AI/misardev-mcp",
   "description": "MisarDev MCP server — create, build, deploy and roll back projects, manage custom domains, search your code and the web, and track plan usage from Claude, Cursor, VS Code, Windsurf and any MCP client.",
   "type": "module",

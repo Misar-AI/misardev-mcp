@@ -19,7 +19,7 @@ export const domainTools: ToolDefinition[] = [
     name: "set_custom_domain",
     category: "domains",
     description:
-      "Attach a domain the user owns to a published project and provision routing/TLS. Paid plans only (the API answers with an upgrade offer otherwise). Returns the DNS record to set — the domain only serves once that record is live.",
+      "Attach a domain the user owns to a published project and provision routing/TLS. Pro, Team and Enterprise plans only — Free and Starter get an upgrade offer instead. Returns the DNS record to set — the domain only serves once that record is live.",
     scopes: ["deploy"],
     annotations: {
       title: "Set custom domain",

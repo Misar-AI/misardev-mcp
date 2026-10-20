@@ -1,7 +1,7 @@
 {
   "serverInfo": {
     "name": "MisarDev",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "logoUrl": "https://misar.dev/logo-light.png"
   },
   "websiteUrl": "https://misar.dev",
@@ -145,7 +145,7 @@
     },
     {
       "name": "set_custom_domain",
-      "description": "Attach a domain the user owns to a published project and provision routing/TLS. Paid plans only (the API answers with an upgrade offer otherwise). Returns the DNS record to set — the domain only serves once that record is live."
+      "description": "Attach a domain the user owns to a published project and provision routing/TLS. Pro, Team and Enterprise plans only — Free and Starter get an upgrade offer instead. Returns the DNS record to set — the domain only serves once that record is live."
     },
     {
       "name": "remove_custom_domain",

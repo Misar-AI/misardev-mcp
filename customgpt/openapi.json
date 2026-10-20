@@ -1062,7 +1062,7 @@
       "post": {
         "operationId": "set_custom_domain",
         "summary": "Set custom domain",
-        "description": "Attach a domain the user owns to a published project and provision routing/TLS. Paid plans only (the API answers with an upgrade offer otherwise). Returns the DNS record to set — the domain only serves once that record is live.",
+        "description": "Attach a domain the user owns to a published project and provision routing/TLS. Pro, Team and Enterprise plans only — Free and Starter get an upgrade offer instead. Returns the DNS record to set — the domain only serves once that record is live.",
         "x-openai-isConsequential": true,
         "requestBody": {
           "required": true,

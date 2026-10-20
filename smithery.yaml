@@ -113,7 +113,7 @@ tools:
   - name: get_custom_domain
     description: "Get a project's custom domain, its status, the DNS record the user must set, and whether DNS already resolves to the platform (TLS is issued automatically once it does)."
   - name: set_custom_domain
-    description: "Attach a domain the user owns to a published project and provision routing/TLS. Paid plans only (the API answers with an upgrade offer otherwise). Returns the DNS record to set — the domain only serves once that record is live."
+    description: "Attach a domain the user owns to a published project and provision routing/TLS. Pro, Team and Enterprise plans only — Free and Starter get an upgrade offer instead. Returns the DNS record to set — the domain only serves once that record is live."
   - name: remove_custom_domain
     description: "Detach a project's custom domain and remove its route. The domain stops serving the app immediately; the default subdomain keeps working. Confirm with the user first."
   - name: lookup_domain

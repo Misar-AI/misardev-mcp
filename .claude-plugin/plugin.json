@@ -1,6 +1,6 @@
 {
   "name": "misardev",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Create, build and deploy projects, roll back with checkpoints, connect custom domains, and search your code and the web — from any AI assistant.",
   "author": {
     "name": "Misar.AI",
