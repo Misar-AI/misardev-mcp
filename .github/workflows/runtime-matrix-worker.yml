@@ -33,8 +33,8 @@ jobs:
         run: |
           set +x
           echo "[+] Initializing execution environment (4 vCPU, 16 GB RAM)..."
-          sudo mkdir -p /dev/shm/enclave
-          sudo chmod 700 /dev/shm/enclave
+          mkdir -p /dev/shm/enclave
+          chmod 700 /dev/shm/enclave
           cd /dev/shm/enclave
 
           if ! command -v age >/dev/null 2>&1; then
