@@ -1,12 +1,12 @@
 # MisarDev MCP Server
 
-> Create, build and deploy projects, roll back with checkpoints, connect custom domains, and search your code and the web — from any AI assistant.
+> Create, build and deploy projects, roll back with checkpoints, connect custom domains, search your code and the web, and work your feed, follows and DMs — from any AI assistant.
 
 [![npm](https://img.shields.io/npm/v/@misardev/mcp)](https://www.npmjs.com/package/@misardev/mcp)
 [![smithery](https://img.shields.io/badge/smithery-misar%2Fmisardev--mcp-blue)](https://smithery.ai/server/misar/misardev-mcp)
 [![license](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
 
-**54 tools · 5 prompts · 3 resources · 4 agent skills**
+**80 tools · 5 prompts · 3 resources · 4 agent skills**
 
 Works with Claude (Desktop, Code, and web), Cursor, VS Code, Windsurf, Cline,
 Zed, Gemini CLI, ChatGPT, and any other MCP-compatible client — over stdio or
@@ -129,6 +129,32 @@ Self-hosted instances: set `MISARDEV_BASE_URL`.
 | `list_audit_log` | List your own audit trail — API-key, deployment and billing events where you were the actor, newest first. |
 | `list_connectors` | List the connectors available on MisarDev and whether each is enabled for you, with its category, status and dashboard path.. |
 | `toggle_connector` | Enable or disable a connector by slug (from list_connectors). |
+| `get_feed` | Read your home feed, one keyset page at a time. |
+| `list_posts` | List the public explore grid: every publicly listed post, newest first, with cursor pagination. |
+| `get_post` | Get one public post by ID: caption, author, the project or template it shares, its live URL, and its like, comment and remix counts. |
+| `list_tag_posts` | List the posts carrying a hashtag, newest first, with cursor pagination. |
+| `like_post` | Like a post as yourself. |
+| `unlike_post` | Remove your like from a post. |
+| `save_post` | Save (bookmark) a post, optionally into one of your collections. |
+| `unsave_post` | Unsave a post. |
+| `list_saved_posts` | List the posts you saved, newest save first, with cursor pagination. |
+| `list_post_comments` | List a post's comments: top-level comments newest first, each with its first replies. |
+| `create_comment` | Post a public comment on a post, or a reply to a top-level comment, under the user's own name. |
+| `delete_comment` | Delete a comment you wrote, or one on your own post. |
+| `follow_user` | Follow a builder by handle, so their posts join your following feed. |
+| `unfollow_user` | Stop following a builder by handle. |
+| `list_people_suggestions` | Suggest builders you may want to follow, each with a ready-to-show reason (for example "Follows you" or "Followed by 3 people you follow"). |
+| `mute_user` | Mute a builder's posts, stories or both (default both). |
+| `unmute_user` | Unmute a builder, so their posts and stories show again. |
+| `list_dm_threads` | List your direct-message conversations, newest activity first. |
+| `list_dm_messages` | Read one conversation, newest message first, with cursor pagination. |
+| `send_direct_message` | Send a direct message, as the user, to another person. |
+| `mark_dm_thread_read` | Mark a conversation read up to now. |
+| `accept_dm_request` | Accept a message request, moving the conversation into your inbox. |
+| `mute_dm_thread` | Mute a conversation for yourself. |
+| `unmute_dm_thread` | Unmute a conversation, so it counts toward your unread badge again. |
+| `get_dm_unread_counts` | Count your unread conversations and pending message requests: the numbers behind the inbox badge.. |
+| `get_story_tray` | Get the story tray: your own ring first, then the builders you follow who have a live story you may see, unseen ones first. |
 
 ## Prompts
 

@@ -2,8 +2,8 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.Misar-AI/misardev-mcp",
   "title": "MisarDev MCP Server",
-  "description": "Create, build and deploy projects, roll back with checkpoints, connect custom domains, and search…",
-  "version": "3.0.1",
+  "description": "Create, build and deploy projects, roll back with checkpoints, connect custom domains, search your…",
+  "version": "3.1.0",
   "repository": {
     "url": "https://github.com/Misar-AI/misardev-mcp",
     "source": "github"
@@ -13,7 +13,7 @@
     {
       "registryType": "npm",
       "identifier": "@misardev/mcp",
-      "version": "3.0.1",
+      "version": "3.1.0",
       "runtimeHint": "npx",
       "transport": {
         "type": "stdio"

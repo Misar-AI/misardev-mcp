@@ -12,6 +12,7 @@ import { searchTools } from "./tools/search.js";
 import { codeIndexTools } from "./tools/code-index.js";
 import { accountTools } from "./tools/account.js";
 import { connectorTools } from "./tools/connectors.js";
+import { socialTools } from "./tools/social.js";
 import { reportToolCall } from "./lib/telemetry.js";
 
 /**
@@ -34,6 +35,7 @@ export const ALL_TOOLS: ToolDefinition[] = [
   ...codeIndexTools,
   ...accountTools,
   ...connectorTools,
+  ...socialTools,
 ];
 
 const BY_NAME = new Map(ALL_TOOLS.map((t) => [t.name, t]));

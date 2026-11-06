@@ -84,6 +84,38 @@ export const ROUTES: Row[] = [
   ["delete_checkpoint", { checkpoint_id: "c1" }, "DELETE", "/checkpoints/c1"],
   ["mark_notification_read", { id: "n1" }, "PATCH", "/notifications/n1", { read: true }],
   ["list_audit_log", { limit: 10, category: "deploy" }, "GET", "/audit?limit=10&category=deploy"],
+  // Social (3.1.0) — checked 2026-11-07 against MisarDev origin/develop: each
+  // handler calls getApiUser, and its prefix is in middleware API_KEY_ROUTES
+  // (or PUBLIC_ROUTES for the public reads).
+  ["get_feed", { limit: 10 }, "GET", "/feed?limit=10"],
+  ["get_feed", { feed: "for_you", cursor: "c1" }, "GET", "/feed/for-you?cursor=c1"],
+  ["list_posts", { cursor: "c1", limit: 12 }, "GET", "/posts?cursor=c1&limit=12"],
+  ["get_post", { post_id: "po1" }, "GET", "/posts/po1"],
+  ["list_tag_posts", { tag: "#nextjs", limit: 5 }, "GET", "/tags/nextjs?limit=5"],
+  ["like_post", { post_id: "po1" }, "POST", "/posts/po1/like", {}],
+  ["unlike_post", { post_id: "po1" }, "DELETE", "/posts/po1/like"],
+  ["save_post", { post_id: "po1", collection_id: "co1" }, "POST", "/posts/po1/save", { collectionId: "co1" }],
+  ["unsave_post", { post_id: "po1" }, "DELETE", "/posts/po1/save"],
+  ["list_post_comments", { post_id: "po1", parent_id: "cm1", limit: 10 }, "GET", "/posts/po1/comments?limit=10&parentId=cm1"],
+  ["create_comment", { post_id: "po1", body: "Nice!", parent_id: "cm1" }, "POST", "/posts/po1/comments", { body: "Nice!", parentId: "cm1" }],
+  ["delete_comment", { comment_id: "cm1" }, "DELETE", "/comments/cm1"],
+  ["follow_user", { handle: "@Ada" }, "POST", "/follow/Ada", {}],
+  ["unfollow_user", { handle: "ada" }, "DELETE", "/follow/ada"],
+  ["list_people_suggestions", { limit: 5 }, "GET", "/social/suggestions?limit=5"],
+  ["mute_user", { handle: "ada", mute_stories: false }, "POST", "/mutes/ada", { muteStories: false }],
+  ["unmute_user", { handle: "ada" }, "DELETE", "/mutes/ada"],
+  ["list_dm_threads", { box: "requests", limit: 20 }, "GET", "/dm/threads?box=requests&limit=20"],
+  ["list_dm_messages", { thread_id: "th1", cursor: "c1" }, "GET", "/dm/threads/th1/messages?cursor=c1"],
+  ["send_direct_message", { thread_id: "th1", body: "hi" }, "POST", "/dm/threads/th1/messages", { body: "hi" }],
+  ["send_direct_message", { handle: "ada", body: "hi" }, "POST", "/dm/threads", { handle: "ada", body: "hi" }],
+  ["mark_dm_thread_read", { thread_id: "th1" }, "POST", "/dm/threads/th1/read", {}],
+  ["accept_dm_request", { thread_id: "th1" }, "POST", "/dm/threads/th1/accept", {}],
+  ["get_dm_unread_counts", {}, "GET", "/dm/unread"],
+  // Wave 6 follow-ups: /api/me/saved joined API_KEY_ROUTES; DM thread mute is new.
+  ["list_saved_posts", { collection_id: "co1", cursor: "c1", limit: 10 }, "GET", "/me/saved?collection=co1&cursor=c1&limit=10"],
+  ["mute_dm_thread", { thread_id: "th1" }, "POST", "/dm/threads/th1/mute", {}],
+  ["unmute_dm_thread", { thread_id: "th1" }, "DELETE", "/dm/threads/th1/mute"],
+  ["get_story_tray", {}, "GET", "/stories/tray"],
 ];
 
 afterEach(() => vi.restoreAllMocks());

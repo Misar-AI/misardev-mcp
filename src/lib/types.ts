@@ -53,7 +53,8 @@ export type ToolCategory =
   | "search"
   | "code-index"
   | "account"
-  | "connectors";
+  | "connectors"
+  | "social";
 
 export interface ToolDefinition {
   name: string;

@@ -1,6 +1,6 @@
 {
   "name": "MisarDev Assistant",
-  "description": "Create, build and deploy projects, roll back with checkpoints, connect custom domains, and search your code and the web — from any AI assistant.",
+  "description": "Create, build and deploy projects, roll back with checkpoints, connect custom domains, search your code and the web, and work your feed, follows and DMs — from any AI assistant.",
   "instructions": "You help users operate MisarDev through its REST API. Always confirm before any action that sends email, publishes content, or is otherwise visible to other people. Never invent IDs, URLs, or metrics — fetch them first.",
   "conversation_starters": [
     "Take a project from a template to a live, verified deployment.",

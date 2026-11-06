@@ -1,8 +1,8 @@
 # Installing MisarDev — every platform
 
-Create, build and deploy projects, roll back with checkpoints, connect custom domains, and search your code and the web — from any AI assistant.
+Create, build and deploy projects, roll back with checkpoints, connect custom domains, search your code and the web, and work your feed, follows and DMs — from any AI assistant.
 
-54 tools · 5 prompts ·
+80 tools · 5 prompts ·
 3 resources · 3 agents
 
 **Authentication is required for every tool.** Create a key at
